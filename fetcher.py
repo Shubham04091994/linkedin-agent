@@ -13,15 +13,16 @@ from datetime import datetime, timezone
 FEEDS = {
     # News & media
     "Inc42":          "https://inc42.com/feed/",
-    "Entrackr":       "https://entrackr.com/feed/",
-    "Afaqs":          "https://www.afaqs.com/rss/news.xml",
-    "Exchange4Media": "https://www.exchange4media.com/rss/",
-    "Mint":           "https://www.livemint.com/rss/news",
+    "YourStory":      "https://yourstory.com/feed/",
+    "MediaNama":      "https://medianama.com/feed/",
+    "Brand Equity":   "https://brandequity.economictimes.indiatimes.com/rss/topstories",
+    "Campaign India": "https://www.campaignindia.in/rss.xml",
+    "Adgully":        "https://www.adgully.com/feed/",
     "The Ken":        "https://the-ken.com/feed/",
-    # Reddit
-    "Reddit/India":          "https://www.reddit.com/r/india/.rss",
-    "Reddit/IndianBusiness": "https://www.reddit.com/r/indianbusiness/.rss",
-    "Reddit/Startups":       "https://www.reddit.com/r/startups/.rss",
+    "Mint Markets":   "https://www.livemint.com/rss/companies",
+    "Entrackr":       "https://entrackr.com/feed",   # no trailing slash
+    "Reddit/IndianBusiness": "https://www.reddit.com/r/IndianBusiness/.rss",
+    "Reddit/India":   "https://www.reddit.com/r/india/.rss",
 }
 
 # ─── RELEVANCE KEYWORDS ───────────────────────────────────────────────────────
@@ -54,7 +55,7 @@ KEYWORDS = [
     "India brand", "Made in India",
 ]
 
-MIN_KEYWORD_HITS = 1   # raise to 2 if too many irrelevant articles slip through
+MIN_KEYWORD_HITS = 2   # raise to 2 if too many irrelevant articles slip through
 MAX_ARTICLES_PER_FEED = 10  # fetch more, let the curator pick the best 5
 
 # ─── HELPERS ─────────────────────────────────────────────────────────────────
