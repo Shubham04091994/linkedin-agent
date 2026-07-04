@@ -18,11 +18,15 @@ FEEDS = {
     "Brand Equity":   "https://brandequity.economictimes.indiatimes.com/rss/topstories",
     "Campaign India": "https://www.campaignindia.in/rss.xml",
     "Adgully":        "https://www.adgully.com/feed/",
-    "The Ken":        "https://the-ken.com/feed/",
-    "Mint Markets":   "https://www.livemint.com/rss/companies",
+    "The Ken":        "https://the-ken.com/feed/",    
     "Entrackr":       "https://entrackr.com/feed",   # no trailing slash
     "Reddit/IndianBusiness": "https://www.reddit.com/r/IndianBusiness/.rss",
     "Reddit/India":   "https://www.reddit.com/r/india/.rss",
+    "Mint News":     "https://www.livemint.com/rss/news",
+    "Mint Opinion":  "https://www.livemint.com/rss/opinion",
+    "Mint Industry": "https://www.livemint.com/rss/industry",
+    "Mint Money":    "https://www.livemint.com/rss/money",
+
 }
 
 # ─── RELEVANCE KEYWORDS ───────────────────────────────────────────────────────
@@ -69,7 +73,7 @@ def _score_article(title: str, summary: str) -> int:
     text = (title + " " + summary).lower()
     return sum(1 for kw in KEYWORDS if kw.lower() in text)
 
-def _clean_summary(raw: str, max_chars: int = 300) -> str:
+def _clean_summary(raw: str, max_chars: int = 500) -> str:
     """Strip HTML tags and truncate."""
     import re
     clean = re.sub(r"<[^>]+>", "", raw or "")

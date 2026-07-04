@@ -16,16 +16,19 @@ NICHE = (
 )
 
 SYSTEM_PROMPT = (
-    "You are a LinkedIn content curator. Pick the 5 most insightful, "
-    "share-worthy articles for a professional audience. "
-    "Avoid generic funding news unless the story has a strong strategic angle. "
+    "You are a strict LinkedIn content curator for an Indian marketing/business professional. "
+    "REJECT pure news announcements (funding rounds, appointments, routine launches) unless "
+    "they carry a clear strategic or analytical angle. "
+    "PRIORITISE: opinion pieces, strategic analysis, contrarian takes, case studies with "
+    "specific numbers, and stories revealing a non-obvious pattern in Indian business/marketing. "
+    "A good pick lets the reader form an opinion. A bad pick is just an FYI. "
     "Reply ONLY with valid JSON — no markdown, no preamble."
 )
 
 def _build_user_prompt(articles):
     lines = []
     for a in articles:
-        summary_short = a["summary"][:150].replace("\n", " ")
+        summary_short = a["summary"][:400].replace("\n", " ")
         lines.append(f'[{a["id"]}] {a["source"]} | {a["title"]} | {summary_short}')
     articles_text = "\n".join(lines)
     return (

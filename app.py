@@ -1,6 +1,15 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import os
+try:
+    import streamlit as st
+    # Bridge Streamlit secrets → os.environ so all modules can read them
+    for key, value in st.secrets.items():
+        os.environ[key] = str(value)
+except Exception:
+    pass  # Running locally, .env handles it
+
 import streamlit as st
 from storage    import get_todays_picks, init_db
 from researcher import generate_research_pack, polish_draft
