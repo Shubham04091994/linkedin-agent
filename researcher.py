@@ -1,6 +1,12 @@
 from dotenv import load_dotenv
 load_dotenv()
 
+import os
+import streamlit as st
+if hasattr(st, "secrets"):
+    for k, v in st.secrets.items():
+        os.environ.setdefault(k, str(v))
+
 import anthropic
 import requests
 import re
